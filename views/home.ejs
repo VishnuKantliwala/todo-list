@@ -6,6 +6,9 @@
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="stylesheet" href="css/home.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
  <title>Todo list</title>
 </head>
 
@@ -14,25 +17,56 @@
   <div class="header">
    <h1>TODO App</h1>
   </div>
-  <div class="input-area">
-   <div class="input">
-    <lable>DESCRIPTION</lable>
-    <textarea name="desc" required class="desc" type="text" placeholder="What do you need to do"></textarea>
-   </div>
-   <div class="row">
+  <form method="post">
+   <div class="input-area">
     <div class="input">
-     <lable>CATEGORY</lable>
-     <select name="category">
-      <option>Category 1</option>
-      <option>Category 2</option>
-     </select>
+     <lable>DESCRIPTION</lable>
+     <textarea name="name" class="desc" type="text" placeholder="What do you need to do"></textarea>
     </div>
-    <div class="input">
-     <lable>DATE</lable>
-     <input class="date" name="date" type="date" />
+    <div class="row">
+     <div class="input">
+      <lable>CATEGORY</lable>
+      <select name="category">
+       <option>Category 1</option>
+       <option>Category 2</option>
+      </select>
+     </div>
+     <div class="input">
+      <lable>DATE</lable>
+      <input class="date" name="date" type="date" />
+     </div>
     </div>
    </div>
-  </div>
+   <div class="buttons">
+    <button type="submit" formaction="/" name="add" class="add-button"><i class="fas fa-plus mr-10"></i>Add
+     Task</button>
+    <button type="submit" formaction="/delete" name="delete" class="delete-button"><i
+      class="fas fa-trash mr-10"></i>Delete Tasks</button>
+   </div>
+
+   <div class="task-list">
+    <% for (let i of tasks) {%>
+     <div class="task">
+      <input type="checkbox" name="delete_tasks[]" value="<%= i._id%>" />
+      <div class="body">
+       <div class="left">
+        <p class="task-name">
+         <%= i.name%>
+        </p>
+        <p class="task-date"><i class="fas fa-calendar mr-10"></i>
+         <%= i.date%>
+        </p>
+       </div>
+       <div class="right">
+        <div class="task-category">
+         <%= i.category%>
+        </div>
+       </div>
+      </div>
+     </div>
+     <% } %>
+   </div>
+  </form>
  </div>
 </body>
 

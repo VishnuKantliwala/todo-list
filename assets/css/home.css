@@ -44,13 +44,13 @@ lable {
 }
 
 textarea,
-input,
+input[type="text"],
 select {
  all: unset;
 }
 
 select,
-input {
+input[type="text"] {
  font-size: 14px;
  color: black;
  font-weight: 500;
@@ -62,4 +62,75 @@ input {
 }
 .row .input {
  width: 50%;
+}
+
+.buttons {
+ display: flex;
+ justify-content: center;
+ gap: 10px;
+ padding: 20px 0px;
+}
+
+button {
+ width: 140px;
+ padding: 12px 8px;
+ text-align: start;
+ border: none;
+}
+
+.mr-10 {
+ margin-right: 10px;
+}
+
+.add-button {
+ color: white;
+ background-color: rgb(61, 61, 61);
+}
+
+.delete-button {
+ color: white;
+ background-color: rgb(230, 15, 15);
+}
+
+.task-list {
+ padding: 0px 20px 0px 20px;
+}
+
+.task {
+ display: flex;
+ border-top: 1px solid rgb(215, 215, 215);
+ padding: 10px 0px;
+ align-items: flex-start;
+}
+.task:last-child {
+ margin-bottom: 100px;
+}
+
+.body {
+ flex: 1;
+ display: flex;
+ justify-content: space-between;
+ padding: 0px 10px;
+}
+.task-name {
+ color: rgb(83, 83, 83);
+ font-weight: bold;
+ margin-bottom: 8px;
+}
+.task-date {
+ color: rgb(158, 158, 158);
+ font-size: 12px;
+}
+
+.task-category {
+ color: white;
+ background-color: rgb(245, 167, 0);
+ padding: 5px;
+ width: 100px;
+ height: 30px;
+ text-align: center;
+ font-size: 12px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
 }
